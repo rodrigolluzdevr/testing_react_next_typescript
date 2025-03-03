@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import Global from "@/components/Global"
+
 const courses = ["HTML", "React", "Vue", "C#", "Typescript", "Arduino"]
 
 const xcourses = [
@@ -34,6 +36,10 @@ export default function inputs() {
                         fcourses()
                     }
                 </select>
+            </div>
+            <div>
+                <p>{Global.course}</p>
+                <p>{Global.year}</p>
             </div>
         </div>
     )
