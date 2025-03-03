@@ -2,9 +2,7 @@ import { useState } from "react"
 
 import Global from "@/components/Global"
 
-const courses = ["HTML", "React", "Vue", "C#", "Typescript", "Arduino"]
-
-const xcourses = [
+const courses = [
     {"course": "HTML"},
     {"course": "React"},
     {"course": "Vue"},
@@ -13,13 +11,13 @@ const xcourses = [
     {"course": "Arduino"},
 ]
 
-export default function inputs() {
+export default function Inputs() {
     const [ name, setName ] = useState<string>("")
     const [ course, setCourse ] = useState<string>("")
 
     function fcourses() {
-        return xcourses.map((c: any) => {
-            return <option value={c.course}>{c.course}</option>
+        return courses.map((c) => {
+            return <option value={c.course} key={Math.random()*99999999999}>{c.course}</option>
         })
     }
 

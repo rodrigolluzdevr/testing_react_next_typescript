@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import DisplayState from "@/components/DisplayState"
 
-export default function usestate() {
+export default function Usestate() {
     const [cont, setCont] = useState<number>(0)
 
     return (

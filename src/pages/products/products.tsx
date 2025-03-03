@@ -37,14 +37,14 @@ function VerifyDesc(n1: number, n2: number) {
     }
 }
 
-export default function ProductsPage() {
+export default function Products() {
     return (
         <div className='flex justify-center gap-3'>
         {
-          products.map((e: any) => {
+          products.map((e) => {
             if (e.state) {
             return (
-              <Card product={e.product} value={e.value} descount={e.descount} funct={VerifyDesc}/>
+              <Card key={e.product} product={e.product} value={e.value} descount={e.descount} funct={VerifyDesc}/>
             )}
           })
         }
