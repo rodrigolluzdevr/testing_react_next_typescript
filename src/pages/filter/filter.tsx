@@ -1,17 +1,16 @@
-import { useState } from "react"
-
-const car = [ 
-    {id:0, categ: 'Sport', value: '120000.00', model: 'Golf'},
-    {id:1, categ: 'Sport', value: '200000.00', model: 'Camaro'},
-    {id:2, categ: 'SUV', value: '100000.00', model: 'HRV'},
-    {id:3, categ: 'SUV', value: '100000.00', model: 'T-Cross'},
-    {id:4, categ: 'Util', value: '180000.00', model: 'Hillux'},
-    {id:5, categ: 'Util', value: '160000.00', model: 'Ranger'}
-]
+import { useEffect, useState } from "react"
 
 export default function filter() {
     const [categ, setCateg] = useState<string>('')
     const [lines, setLines] = useState<any[]>([])
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:1880/car')
+        .then(res => res.json())
+        .then(res => {
+            car = res
+        })
+    }, [])
 
     function linesCreate(cat: any) {
         setCateg(cat)
@@ -35,7 +34,7 @@ export default function filter() {
             <div>
                 <label>Select the category</label>
                 <select value={categ} onChange={(evt) => {linesCreate(evt.target.value)}}>
-                    <option value='Todos'>Todos</option>
+                    <option value=''>Nenhum</option>
                     <option value='Sport'>Sport</option>
                     <option value='SUV'>SUV</option>
                     <option value='Util'>Util</option>
